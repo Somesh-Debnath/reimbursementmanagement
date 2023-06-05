@@ -37,7 +37,7 @@ public class ReimbursementRequestController {
     @GetMapping(path = "/reimbursements/{travelrequestid}/requests", produces = { MediaType.APPLICATION_JSON_VALUE })
     ResponseEntity<ReimbursementRequests> findReimbursementRequestsByTravelRequestId(@PathVariable int travelRequestId)
             throws ResourceNotFoundException {
-        ReimbursementRequests reimbursementRequests = ReimbursementRequestsService
+        ReimbursementRequests reimbursementRequests = reimbursementRequestsService
                 .getReimbursementRequestsByTravelRequestId(travelRequestId)
                 .orElseThrow(
                         () -> new ResourceNotFoundException("ReimburementRequests not found for travel request id"));
@@ -47,17 +47,17 @@ public class ReimbursementRequestController {
     @GetMapping(path = "/reimbursements/{requestid}", produces = { MediaType.APPLICATION_JSON_VALUE })
     ResponseEntity<ReimbursementRequests> findReimbursementRequestById(@PathVariable int id)
             throws ResourceNotFoundException {
-        ReimbursementRequests reimbursementRequests = ReimbursementRequestsService.getReimbursementRequestById(id)
+        ReimbursementRequests reimbursementRequests = reimbursementRequestsService.getReimbursementRequestById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("ReimbursementRequests not found for id"));
         return new ResponseEntity<ReimbursementRequests>(reimbursementRequests, HttpStatus.OK);
     }
 
-    @PutMapping(path = "/reimbursements/{requestid}/process", produces = { MediaType.APPLICATION_JSON_VALUE })
+ //   @PutMapping(path = "/reimbursements/{requestid}/process", produces = { MediaType.APPLICATION_JSON_VALUE })
 
-    ReimbursementRequests processReimbursementRequest(@PathVariable int id) throws ResourceNotFoundException {
-        ReimbursementRequests reimbursementRequests = ReimbursementRequestsService.getReimbursementRequestById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("ReimbursementRequests", "id", id));
-        return new ResponseEntity<ReimbursementRequests>(reimbursementRequests, HttpStatus.OK);
-    }
+//     ResponseEntity<ReimbursementRequests> processReimbursementRequest(@PathVariable int id) throws ResourceNotFoundException {
+//         ReimbursementRequests reimbursementRequests = ReimbursementRequestsService.getReimbursementRequestById(id)
+//                 .orElseThrow(() -> new ResourceNotFoundException("ReimbursementRequests"));
+//         return new ResponseEntity<ReimbursementRequests>(reimbursementRequests, HttpStatus.OK);
+    
 
 }
