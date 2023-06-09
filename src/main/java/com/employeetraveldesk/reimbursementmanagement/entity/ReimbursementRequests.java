@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
@@ -15,8 +17,7 @@ import lombok.Data;
 public class ReimbursementRequests {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    /*` id`, ` TravelRequestId`, ` RequestRaisedByEmployeeId`, ` RequestDate`, ` ReimbursementTypeId`, ` InvoiceNo`, ` InvoiceDate`, ` InvoiceAmount`, ` DocumentURL`, `RequestProcessedOn`, ` RequestProcessedByEmployeeId`, ` Remarks`, `Status` */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int TravelRequestId;
     private int RequestRaisedByEmployeeId;
@@ -31,4 +32,7 @@ public class ReimbursementRequests {
     private String Remarks;
     private String Status;
     
+    @ManyToOne
+    @JoinColumn(name = "ReimbursementTypeId", insertable = false, updatable = false)
+    private ReimbursementTypes reimbursementTypes;
 }
