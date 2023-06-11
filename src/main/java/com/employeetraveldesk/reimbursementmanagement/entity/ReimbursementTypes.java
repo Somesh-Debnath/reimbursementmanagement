@@ -15,7 +15,12 @@ public class ReimbursementTypes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String Type;
-    public char[] getReimbursementType() {
-        return null;
-    }
+
+    //genereate sql insert statements for fake data
+    /*
+     * insert into reimbursementtypes (Type) values ('Food');
+     * insert into reimbursementtypes (Type) values ('Water');
+     * insert into reimbursementtypes (Type) values ('Laundry');
+     * insert into reimbursementtypes (Type) values ('Local Travel');
+     */
 }

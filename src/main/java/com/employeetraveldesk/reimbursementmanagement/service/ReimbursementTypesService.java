@@ -14,6 +14,10 @@ public class ReimbursementTypesService implements IReimbursementTypesService {
     @Autowired
     private ReimbursementTypesRepository reimbursementTypesRepository;
 
+    public ReimbursementTypesService(ReimbursementTypesRepository reimbursementTypesRepository) {
+        super();
+        this.reimbursementTypesRepository = reimbursementTypesRepository;
+    }
     @Override
     public List<ReimbursementTypes> getReimbursementTypes() {
         return reimbursementTypesRepository.findAll();

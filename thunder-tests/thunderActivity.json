@@ -1,0 +1,100 @@
+[
+  {
+    "_id": "c9b8b18e-297d-48ec-99e3-de612918028c",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9090/api/reimbursementtypes",
+    "url": "localhost:9090/api/reimbursementtypes",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-06-10T05:25:57.192Z",
+    "modified": "2023-06-10T05:25:57.192Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1329498f-2a43-4f4f-828d-f69567ce342f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9090/api/reimbursements/add",
+    "url": "localhost:9090/api/reimbursements/add",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-06-10T06:42:42.065Z",
+    "modified": "2023-06-11T11:45:31.015Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"requestRaisedByEmployeeId\": 1,\n  \"reimbursementTypeId\": 2,\n  \"requestProcessedOn\": \"2023-07-01\",\n  \"requestProcessedByEmployeeId\": 1,\n  \"status\": \"Approved\",\n  \"requestDate\": \"2021-07-01\",\n  \"invoiceDate\": \"2021-07-01\",\n  \"invoiceAmount\": 1200,\n  \"travelRequestId\": 1,\n  \"documentURL\": \"1\",\n  \"remarks\": \"Approved\",\n  \"invoiceNo\": \"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1cda15f8-7d30-4148-86ad-63927e6b1d04",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9090/api/reimbursements/10",
+    "url": "localhost:9090/api/reimbursements/{reimbursementid}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-06-10T07:05:40.925Z",
+    "modified": "2023-06-10T12:54:52.737Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "reimbursementid",
+        "value": "23",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "0a9d1397-f8dd-4b51-a0c7-e9dca84a2f22",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9090/api/reimbursements/1/requests",
+    "url": "localhost:9090/api/reimbursements/{travelrequestid}/requests",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-06-10T07:07:10.870Z",
+    "modified": "2023-06-10T12:54:28.162Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "travelrequestid",
+        "value": "1",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "838d22f5-af55-47ca-8cb4-2a4f6c2a9ce1",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:9090/api/reimbursements/{requestid}/process",
+    "url": "localhost:9090/api/reimbursements/{reimbursementid}/process",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-06-10T12:50:07.601Z",
+    "modified": "2023-06-10T13:34:06.462Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "reimbursementid",
+        "value": "23",
+        "isPath": true
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"status\": \"Approved\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

@@ -23,15 +23,9 @@ public class ReimbursementTypesController {
     @Autowired
     private ReimbursementTypesRepository reimbursementTypesRepository;
 
-    // api/reimbursementtypes/  GET
-
     @GetMapping(path="/reimbursementtypes", produces={MediaType.APPLICATION_JSON_VALUE})
-    //This endpoint will return details of all the reimbursement types
     public ResponseEntity<Iterable<ReimbursementTypes>> getAllReimbursementTypes() {
        List<ReimbursementTypes> reimbursementTypes = reimbursementTypesService.getReimbursementTypes();
-       for(ReimbursementTypes reimbursementType : reimbursementTypes) {
-           System.out.println(reimbursementType.getReimbursementType());
-       }
          return new ResponseEntity<Iterable<ReimbursementTypes>>(reimbursementTypes, HttpStatus.OK);
     }
 
