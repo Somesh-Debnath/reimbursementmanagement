@@ -38,8 +38,8 @@ class ReimbursementmanagementApplicationTests {
 	public void insertReimbursementRequestTest(){
 		when(reimbursementRequestsRepository.save(new ReimbursementRequests()))
 		.thenReturn(new ReimbursementRequests());
-		//assert(reimbursementRequestsService.insertReimbursementRequest
-		//(new ReimbursementRequests())!=null);
+		assertEquals(1,reimbursementRequestsService.insertReimbursementRequest
+				(new ReimbursementRequests()).getId());
 	}
 
 	@Test

@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-06-10T06:42:42.065Z",
-    "modified": "2023-06-11T11:45:31.015Z",
+    "modified": "2023-06-11T18:45:38.845Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"requestRaisedByEmployeeId\": 1,\n  \"reimbursementTypeId\": 2,\n  \"requestProcessedOn\": \"2023-07-01\",\n  \"requestProcessedByEmployeeId\": 1,\n  \"status\": \"Approved\",\n  \"requestDate\": \"2021-07-01\",\n  \"invoiceDate\": \"2021-07-01\",\n  \"invoiceAmount\": 1200,\n  \"travelRequestId\": 1,\n  \"documentURL\": \"1\",\n  \"remarks\": \"Approved\",\n  \"invoiceNo\": \"1\"\n}",
+      "raw": "{\n  \n  \"requestRaisedByEmployeeId\": 1,\n  \"reimbursementTypeId\": 2,\n  \"requestProcessedOn\": \"2023-07-01\",\n  \"requestProcessedByEmployeeId\": 1,\n  \"status\": \"Approved\",\n  \"requestDate\": \"2021-07-01\",\n  \"invoiceDate\": \"2021-07-01\",\n  \"invoiceAmount\": 1200,\n  \"travelRequestId\": 1,\n  \"documentURL\": \"1\",\n  \"remarks\": \"Approved\",\n  \"invoiceNo\": \"1\"\n}\n",
       "form": []
     },
     "tests": []
@@ -41,12 +41,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-06-10T07:05:40.925Z",
-    "modified": "2023-06-10T12:54:52.737Z",
+    "modified": "2023-06-11T18:45:58.199Z",
     "headers": [],
     "params": [
       {
         "name": "reimbursementid",
-        "value": "23",
+        "value": "2",
         "isPath": true
       }
     ],
@@ -81,18 +81,18 @@
     "method": "PUT",
     "sortNum": 0,
     "created": "2023-06-10T12:50:07.601Z",
-    "modified": "2023-06-10T13:34:06.462Z",
+    "modified": "2023-06-11T18:53:59.606Z",
     "headers": [],
     "params": [
       {
         "name": "reimbursementid",
-        "value": "23",
+        "value": "1",
         "isPath": true
       }
     ],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\": \"Approved\"\n}",
+      "raw": "{\n\n  \"requestRaisedByEmployeeId\": 1,\n  \"reimbursementTypeId\": 2,\n  \"requestProcessedOn\": \"2023-07-01\",\n  \"requestProcessedByEmployeeId\": 1,\n  \"status\": \"Rejected\",\n  \"invoiceDate\": \"2021-07-01\",\n  \"invoiceAmount\": 1200,\n  \"travelRequestId\": 2,\n  \"documentURL\": \"1\",\n  \"invoiceNo\": \"1\"\n}\n",
       "form": []
     },
     "tests": []

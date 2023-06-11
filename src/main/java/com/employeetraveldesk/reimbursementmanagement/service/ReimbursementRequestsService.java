@@ -46,8 +46,11 @@ public class ReimbursementRequestsService implements IReimbursementRequestsServi
         if(status.equals("Approved")) {
             reimbursementRequest.setRemarks("Reimbursement is approved");
         }
-        else{
+        if(status.equals("Rejected")){
             reimbursementRequest.setRemarks("Reimbursement is rejected");
+        }
+        if(status.equals("New")){
+            reimbursementRequest.setRemarks("Reimbursement is new");
         }
         return reimbursementRequestsRepository.save(reimbursementRequest);
 
@@ -96,7 +99,7 @@ public class ReimbursementRequestsService implements IReimbursementRequestsServi
         //         || reimbursementRequests.getInvoiceDate().compareTo(reimbursementRequests.getTravelEndDate()) >= 0) {
         //     throw new IllegalArgumentException("Invoice date must be with in the from and to date of the travel");
         // }
-        if (reimbursementRequests.getStatus().equals("Rejected") && reimbursementRequests.getRemarks().isEmpty()) {
+        if (reimbursementRequests.getStatus().equals("Rejected") || reimbursementRequests.getRemarks().isEmpty()) {
             reimbursementRequests.setRemarks("Reimbursement is rejected");
         }
     }
