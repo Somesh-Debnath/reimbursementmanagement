@@ -12,8 +12,9 @@ public interface IReimbursementRequestsService {
     Optional<ReimbursementRequests> getReimbursementRequestsByTravelRequestId(int travelRequestId);
 
     ReimbursementRequests processReimbursementRequest(ReimbursementRequests reimbursementRequest, Integer id);
-    void calculateConstraints(ReimbursementRequests reimbursementRequests, ReimbursementTypes reimbursementTypes);
-    Optional<ReimbursementRequests> getReimbursementRequestById(int id);
 
+    void calculateConstraints(ReimbursementRequests reimbursementRequests, ReimbursementTypes reimbursementTypes);
+
+    Optional<ReimbursementRequests> getReimbursementRequestById(int id);
 
 }

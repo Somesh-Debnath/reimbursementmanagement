@@ -51,7 +51,6 @@ public class ReimbursementRequests {
      * "status": "Approved"
      * }
      */
-    //generate sql insert statements for fake data in underscore format
     //insert into reimbursementrequests (TravelRequestId, RequestRaisedByEmployeeId, RequestDate, ReimbursementTypeId, InvoiceNo, InvoiceDate, InvoiceAmount, DocumentURL, RequestProcessedOn, RequestProcessedByEmployeeId, Remarks, Status) values (1, 1, '2021-07-01', 1, '1', '2021-07-01', 1, '1', '2021-07-01', 1, 'Approved', 'Approved');
     //rewite this in underscore format
     //      

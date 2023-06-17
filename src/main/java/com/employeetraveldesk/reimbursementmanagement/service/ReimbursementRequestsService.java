@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import com.employeetraveldesk.reimbursementmanagement.entity.ReimbursementRequests;
@@ -21,13 +20,17 @@ public class ReimbursementRequestsService implements IReimbursementRequestsServi
     @Autowired
     private ReimbursementTypesRepository reimbursementTypesRepository;
 
-    public ReimbursementRequestsService(ReimbursementRequestsRepository reimbursementRequestsRepository) {
-        super();
+    @Autowired
+    public ReimbursementRequestsService(
+            ReimbursementRequestsRepository reimbursementRequestsRepository,
+            ReimbursementTypesRepository reimbursementTypesRepository) {
         this.reimbursementRequestsRepository = reimbursementRequestsRepository;
+        this.reimbursementTypesRepository = reimbursementTypesRepository;
     }
 
     @Override
     public ReimbursementRequests insertReimbursementRequest(ReimbursementRequests reimbursementRequest) {
+        reimbursementRequest.setRequestProcessedOn(LocalDate.now());
         calculateConstraints(reimbursementRequest,
                 reimbursementTypesRepository.findById(reimbursementRequest.getReimbursementTypeId()).get());
         return reimbursementRequestsRepository.save(reimbursementRequest);
@@ -40,16 +43,17 @@ public class ReimbursementRequestsService implements IReimbursementRequestsServi
 
     @Override
     public ReimbursementRequests processReimbursementRequest(ReimbursementRequests reimbursementRequest, Integer id) {
+        reimbursementRequest.setRequestProcessedOn(LocalDate.now());
         calculateConstraints(reimbursementRequest,
                 reimbursementTypesRepository.findById(reimbursementRequest.getReimbursementTypeId()).get());
-                String status = reimbursementRequest.getStatus();
-        if(status.equals("Approved")) {
+        String status = reimbursementRequest.getStatus();
+        if (status.equals("Approved")) {
             reimbursementRequest.setRemarks("Reimbursement is approved");
         }
-        if(status.equals("Rejected")){
+        if (status.equals("Rejected")) {
             reimbursementRequest.setRemarks("Reimbursement is rejected");
         }
-        if(status.equals("New")){
+        if (status.equals("New")) {
             reimbursementRequest.setRemarks("Reimbursement is new");
         }
         return reimbursementRequestsRepository.save(reimbursementRequest);
@@ -95,11 +99,17 @@ public class ReimbursementRequestsService implements IReimbursementRequestsServi
         // throw new IllegalArgumentException("Document must be a pdf and size must be
         // less than 256 KB");
         // }
-        // if (reimbursementRequests.getInvoiceDate().compareTo(reimbursementRequests.getTravelStartDate()) <= 0
-        //         || reimbursementRequests.getInvoiceDate().compareTo(reimbursementRequests.getTravelEndDate()) >= 0) {
-        //     throw new IllegalArgumentException("Invoice date must be with in the from and to date of the travel");
+        // if
+        // (reimbursementRequests.getInvoiceDate().compareTo(reimbursementRequests.getTravelStartDate())
+        // <= 0
+        // ||
+        // reimbursementRequests.getInvoiceDate().compareTo(reimbursementRequests.getTravelEndDate())
+        // >= 0) {
+        // throw new IllegalArgumentException("Invoice date must be with in the from and
+        // to date of the travel");
         // }
-        if (reimbursementRequests.getStatus().equals("Rejected") || reimbursementRequests.getRemarks().isEmpty()) {
+        if (reimbursementRequests.getStatus().equals("Rejected") || reimbursementRequests.getRemarks() == null
+                || reimbursementRequests.getRemarks().isEmpty()) {
             reimbursementRequests.setRemarks("Reimbursement is rejected");
         }
     }

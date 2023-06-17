@@ -16,7 +16,6 @@ public class ReimbursementTypes {
     private int id;
     private String Type;
 
-    //genereate sql insert statements for fake data
     /*
      * insert into reimbursementtypes (Type) values ('Food');
      * insert into reimbursementtypes (Type) values ('Water');
